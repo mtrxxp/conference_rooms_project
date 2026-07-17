@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Sora:wght@500;600;700&display=swap');
+
+:root {
+  --font-body: 'Manrope', 'Segoe UI', sans-serif;
+  --font-display: 'Sora', 'Trebuchet MS', sans-serif;
+  --text: #2f4558;
+  --heading: #0f2d43;
+  --muted: #5c7689;
+  --bg: #f2f7fb;
+  --stroke: #d8e4ee;
+  --shadow: 0 14px 35px rgba(15, 45, 67, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--text);
+  background:
+    radial-gradient(circle at 2% 0%, rgba(255, 160, 122, 0.32), transparent 34%),
+    radial-gradient(circle at 98% 100%, rgba(64, 199, 180, 0.3), transparent 36%),
+    linear-gradient(165deg, #f2f7fb 0%, #eff4f8 45%, #eef7f8 100%);
+  min-height: 100svh;
+}
+
+#root {
+  min-height: 100svh;
+}
