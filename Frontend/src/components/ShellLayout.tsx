@@ -8,7 +8,7 @@ function linkClass({ isActive }: { isActive: boolean }) {
 }
 
 export function ShellLayout() {
-  const { auth, currentUser, isAdmin, logout } = useAppContext();
+  const { auth, currentUser, isAdminOrManager, logout } = useAppContext();
 
   return (
     <div className="app-shell">
@@ -40,7 +40,7 @@ export function ShellLayout() {
               Sign In / Register
             </NavLink>
           )}
-          {isAdmin && (
+          {isAdminOrManager && (
             <NavLink to="/admin/bookings" className={linkClass}>
               Admin Board
             </NavLink>

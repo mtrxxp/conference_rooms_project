@@ -7,7 +7,7 @@ import { formatDate, statusText } from "../utils";
 export function AdminBookingsPage() {
   const {
     auth,
-    isAdmin,
+    isAdminOrManager,
     allBookings,
     loadingBookings,
     pending,
@@ -18,7 +18,7 @@ export function AdminBookingsPage() {
     return <Navigate to="/auth" replace />;
   }
 
-  if (!isAdmin) {
+  if (!isAdminOrManager) {
     return (
       <section className="card page-card">
         <h2>Admin Board</h2>

@@ -33,6 +33,7 @@ interface AppContextValue {
   token: string;
   role: Role | null;
   isAdmin: boolean;
+  isAdminOrManager: boolean;
   pending: boolean;
   loadingRooms: boolean;
   loadingBookings: boolean;
@@ -82,6 +83,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
 
   const role = auth?.role ?? null;
   const isAdmin = role === "ADMIN";
+  const isAdminOrManager = role === "ADMIN" || role === "MANAGER";
 
   const clearMessage = useCallback(() => {
     setMessage(null);
@@ -139,7 +141,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
       setCurrentUser(profile);
       setMyBookings(mine);
 
-      if (role === "ADMIN") {
+      if (role === "ADMIN" || role === "MANAGER") {
         const bookings = await api.getAllBookings(token);
         setAllBookings(bookings);
       } else {
@@ -308,6 +310,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
       token,
       role,
       isAdmin,
+      isAdminOrManager,
       pending,
       loadingRooms,
       loadingBookings,
@@ -331,6 +334,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
       token,
       role,
       isAdmin,
+      isAdminOrManager,
       pending,
       loadingRooms,
       loadingBookings,
